@@ -7,6 +7,7 @@ import numpy as np
 #Ideja e realizimit:
 #
 class GrafiNeSat:
+    emriFile = ""
     matrica = 0
     satFile = 0
     numriVariablave = 0
@@ -15,8 +16,8 @@ class GrafiNeSat:
     tempArr1=[]
     formula=[]
 
-    def __init__(self,_matrica):
-        
+    def __init__(self,_matrica,_emriFile="TestFile"):
+        self.emriFile = _emriFile+".cnf"
         self.matrica = _matrica
         self.satFile = []
         self.numriNgjyrave = 3
@@ -100,12 +101,10 @@ class GrafiNeSat:
                 row = row +"\n"
         row = row +"%"
         
-        file = open("Test.cnf","w")
+        file = open(self.emriFile,"w")
         file.write(row)
         file.close()
         
-matrix = [[0,0,1,1,1],[0,0,1,1,0],[1,1,0,1,0],[1,1,1,0,1],[1,0,0,1,0]]
-a = GrafiNeSat(matrix)
 
 #Definimi i funksioneve te nevojshme
 class SAT:
@@ -213,5 +212,7 @@ class SAT:
 
 
 #Gjetja e zgjidhjes per nje file te caktuar
-fileName = 'test.cnf'
-objSat = SAT(fileName)
+matrix = [[0,0,1,1,1],[0,0,1,1,0],[1,1,0,1,0],[1,1,1,0,1],[1,0,0,1,0]]
+emriFile = 'Output.cnf'
+objGrafiNeSat = GrafiNeSat(matrix,emriFile)
+objSat = SAT(emriFile)
