@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on FRE July 13 02:43:02 2018
+Created on FRI July 13 02:43:02 2018
 @author: Blend Arifaj blendarifaj
 """
 import numpy as np
